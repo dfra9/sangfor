@@ -1,12 +1,16 @@
-{
+Copy{
     "version": 2,
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
         {
-            "src": "/(css|js|images|fonts|favicon.ico|robots.txt)/(.*)",
-            "dest": "/public/$1/$2"
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/assets/(.*)",
+            "dest": "/public/assets/$1"
         },
         {
             "src": "/(.*)",
@@ -14,18 +18,15 @@
         }
     ],
     "env": {
-        "APP_NAME": "Laravel",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://yourprojectdomain.com",
-
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
         "APP_ROUTES_CACHE": "/tmp/routes.php",
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
-
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie"

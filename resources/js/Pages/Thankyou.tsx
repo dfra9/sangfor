@@ -2,6 +2,7 @@
 import { Head, Link } from "@inertiajs/react";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+import thankyouImage from "../assets/thankyousection.png";
 
 export default function Thankyou() {
     return (
