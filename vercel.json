@@ -28,12 +28,13 @@
     },
     "builds": [
         {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "buildCommand": "npm run build",
-                "outputDirectory": "dist"
-            }
+            "src": "api/index.php",
+            "use": "@vercel/php"
+        },
+        {
+            "src": "public/**",
+            "use": "@vercel/static"
         }
-    ]
+    ],
+    "outputDirectory": "public"
 }
