@@ -8,4 +8,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        outDir: "public/build", // This is where Laravel expects the built files
+        manifest: true,
+        input: {
+            app: '/path/to/your/app.js'  // Update this path
+    },
 });
