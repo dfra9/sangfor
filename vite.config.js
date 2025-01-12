@@ -8,9 +8,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    build: {
-        outDir: "public/build", // Specify output directory
-        assetsDir: "", // Keep assets in root of build directory
-        manifest: true, // Generate manifest.json
-    },
 });
