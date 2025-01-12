@@ -18,16 +18,22 @@ export default function Home() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        if (!data.agreeToContact) {
+            alert("Please agree to be contacted before submitting.");
+            return;
+        }
+
         post(route("submit.form"), {
+            preserveScroll: true,
             onSuccess: () => {
-                alert("Form submitted successfully!");
+                // Form submitted successfully, will automatically redirect to thank you page
+                console.log("Form submitted successfully");
             },
             onError: (errors) => {
-                console.error("Form errors:", errors);
+                console.error("Form submission errors:", errors);
             },
         });
     };
-
     return (
         <>
             <Head title="Landing Page" />
@@ -38,8 +44,10 @@ export default function Home() {
                     <div
                         className="absolute inset-0 bg-cover bg-no-repeat bg-center "
                         style={{
-                            backgroundImage:
-                                "url('public/build/assets/section1.jpeg')",
+                            backgroundImage: "url('/assets/section1.jpeg')",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+
                             transform: "scaleX(-1)",
                         }}
                     ></div>
@@ -366,7 +374,8 @@ export default function Home() {
                         <div
                             className="absolute inset-0, transform bg-center bg-no-repeat transition-transform duration-200"
                             style={{
-                                backgroundImage: "url('assets/section3.jpeg')",
+                                backgroundImage:
+                                    "url('build/assets/section3.jpeg')",
                                 backgroundSize: "cover",
                             }}
                         ></div>
